@@ -9,6 +9,7 @@ package model;
  *
  * @author cipri
  */
-public class Gato {
-    
+public enum Tipo {
+    CACHORRO,
+    GATO;
 }

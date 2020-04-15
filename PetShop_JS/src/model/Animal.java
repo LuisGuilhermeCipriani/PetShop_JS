@@ -13,14 +13,16 @@ public class Animal {
     private String nome;
     private int idade;
     private int id;
+    private Tipo tipo;
 
     public Animal() {
     }
 
-    public Animal(String nome, int idade, int id) {
+    public Animal(String nome, int idade, int id, Tipo tipo) {
         this.nome = nome;
         this.idade = idade;
         this.id = id;
+        this.tipo = tipo;
     }
 
     public String getNome() {
@@ -47,5 +49,11 @@ public class Animal {
         this.id = id;
     }
     
+    public Tipo getTipo(){
+        return tipo;
+    }
     
+    public void setTipo(Tipo tipo){
+        this.tipo = tipo;
+    }
 }
