@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.AnimalController;
 import controller.ClienteController;
 
 /**
@@ -14,9 +15,11 @@ import controller.ClienteController;
 public class FormTelaPrincipal extends javax.swing.JFrame {
 
     public static ClienteController clienteController;
+    public static AnimalController animalController;
     public FormTelaPrincipal() {
         initComponents();
         clienteController = new ClienteController();
+        animalController = new AnimalController();
     }
 
     /**
