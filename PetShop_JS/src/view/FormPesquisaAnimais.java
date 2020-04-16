@@ -84,6 +84,11 @@ public class FormPesquisaAnimais extends javax.swing.JFrame {
 
         BTSairTClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/sair.png"))); // NOI18N
         BTSairTClientes.setText("Sair");
+        BTSairTClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTSairTClientesActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 51, 51));
@@ -131,6 +136,10 @@ public class FormPesquisaAnimais extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BTSairTClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTSairTClientesActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_BTSairTClientesActionPerformed
 
     /**
      * @param args the command line arguments

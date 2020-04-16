@@ -40,8 +40,8 @@ public class FormTelaCadastroAnimal extends javax.swing.JFrame {
         BTSairAnimal = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        RDCachorro = new javax.swing.JRadioButton();
+        RDGato = new javax.swing.JRadioButton();
         BTCadastrarAnimal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -63,9 +63,19 @@ public class FormTelaCadastroAnimal extends javax.swing.JFrame {
 
         BTLimparAnimal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/limpar.png"))); // NOI18N
         BTLimparAnimal.setText("Limpar");
+        BTLimparAnimal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTLimparAnimalActionPerformed(evt);
+            }
+        });
 
         BTSairAnimal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/sair.png"))); // NOI18N
         BTSairAnimal.setText("Sair");
+        BTSairAnimal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTSairAnimalActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 153, 153));
@@ -75,9 +85,19 @@ public class FormTelaCadastroAnimal extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 153, 153));
         jLabel7.setText("-------------------------------------------------------------------------------");
 
-        jRadioButton1.setText("Cachorro");
+        RDCachorro.setText("Cachorro");
+        RDCachorro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RDCachorroActionPerformed(evt);
+            }
+        });
 
-        jRadioButton2.setText("Gato");
+        RDGato.setText("Gato");
+        RDGato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RDGatoActionPerformed(evt);
+            }
+        });
 
         BTCadastrarAnimal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/salvar.png"))); // NOI18N
         BTCadastrarAnimal.setText("Cadastrar");
@@ -122,9 +142,9 @@ public class FormTelaCadastroAnimal extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(97, 97, 97)
-                                .addComponent(jRadioButton1)
+                                .addComponent(RDCachorro)
                                 .addGap(18, 18, 18)
-                                .addComponent(jRadioButton2))))
+                                .addComponent(RDGato))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(262, 262, 262)
                         .addComponent(BTCadastrarAnimal)))
@@ -150,8 +170,8 @@ public class FormTelaCadastroAnimal extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(RDCachorro)
+                    .addComponent(RDGato))
                 .addGap(24, 24, 24)
                 .addComponent(BTCadastrarAnimal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -170,6 +190,27 @@ public class FormTelaCadastroAnimal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BTSairAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTSairAnimalActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_BTSairAnimalActionPerformed
+
+    private void BTLimparAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTLimparAnimalActionPerformed
+        TFNomeAnimal.setText("");
+        TFIDAnimal.setText("");
+        TFIdadeAnimal.setText("");
+        RDCachorro.setSelected(false);
+        RDGato.setSelected(false);
+        TFNomeAnimal.requestFocus();
+    }//GEN-LAST:event_BTLimparAnimalActionPerformed
+
+    private void RDCachorroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDCachorroActionPerformed
+        RDGato.setSelected(false);
+    }//GEN-LAST:event_RDCachorroActionPerformed
+
+    private void RDGatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDGatoActionPerformed
+        RDCachorro.setSelected(false);
+    }//GEN-LAST:event_RDGatoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,6 +251,8 @@ public class FormTelaCadastroAnimal extends javax.swing.JFrame {
     private javax.swing.JButton BTCadastrarAnimal;
     private javax.swing.JButton BTLimparAnimal;
     private javax.swing.JButton BTSairAnimal;
+    private javax.swing.JRadioButton RDCachorro;
+    private javax.swing.JRadioButton RDGato;
     private javax.swing.JTextField TFIDAnimal;
     private javax.swing.JTextField TFIdadeAnimal;
     private javax.swing.JTextField TFNomeAnimal;
@@ -221,7 +264,5 @@ public class FormTelaCadastroAnimal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     // End of variables declaration//GEN-END:variables
 }
