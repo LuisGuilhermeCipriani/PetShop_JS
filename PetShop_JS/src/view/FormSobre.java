@@ -34,9 +34,14 @@ public class FormSobre extends javax.swing.JFrame {
         BTSairSobre = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        TASobre = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel1.setText("No campo abaixo são apresentadas informações sobre o desenvolvimento");
@@ -57,9 +62,10 @@ public class FormSobre extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 204, 51));
         jLabel7.setText("------------------------------------------------------------------------------------");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        TASobre.setEditable(false);
+        TASobre.setColumns(20);
+        TASobre.setRows(5);
+        jScrollPane2.setViewportView(TASobre);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -128,6 +134,10 @@ public class FormSobre extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BTSairSobreActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        TASobre.setText("Nome do desenvolvedor: Luis Guilherme da Cunha Cipriani" + "\n" + "Endereço: Rua Santo Antônio. Nº193" + "\n" + "Data final do desenvolvimento: 16/04/2020");
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -165,12 +175,12 @@ public class FormSobre extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTSairSobre;
+    private javax.swing.JTextArea TASobre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

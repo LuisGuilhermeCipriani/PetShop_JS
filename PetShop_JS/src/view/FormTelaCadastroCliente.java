@@ -25,7 +25,7 @@ public class FormTelaCadastroCliente extends javax.swing.JFrame {
     public void holders(){
         holder = new PlaceHolder(TFNomeCliente, "Nome.Ex: Luis");
         holder = new PlaceHolder(TFCPFCliente, "CPF.Ex: 10244671630");
-        holder = new PlaceHolder(TFIdadeCliente, "Idade.Ex: 30");
+        holder = new PlaceHolder(TFIdadeCliente, "Idade em Anos.Ex: 30");
         holder = new PlaceHolder(TFIDCliente, "ID.Ex: 1");
     }
     @SuppressWarnings("unchecked")

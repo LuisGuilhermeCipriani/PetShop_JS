@@ -6,6 +6,8 @@
 package view;
 
 import com.placeholder.PlaceHolder;
+import javax.swing.JOptionPane;
+import model.Animal;
 import model.Tipo;
 
 /**
@@ -28,11 +30,11 @@ public class FormTelaCadastroAnimal extends javax.swing.JFrame {
     }
 
     public void selecionaTipo(){
-        Tipo tipo = Tipo.CACHORRO;
         if(RDGato.isSelected()){
-            FormTelaPrincipal.animalController.getAnimal().setTipo(tipo.GATO);
+            FormTelaPrincipal.animalController.getAnimal().setTipo(Tipo.GATO);
+        }else if(RDCachorro.isSelected()){
+            FormTelaPrincipal.animalController.getAnimal().setTipo(Tipo.CACHORRO);
         }
-        FormTelaPrincipal.animalController.getAnimal().setTipo(tipo);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -240,12 +242,17 @@ public class FormTelaCadastroAnimal extends javax.swing.JFrame {
         int idade = Integer.parseInt(TFIdadeAnimal.getText());
         int ID = Integer.parseInt(TFIDAnimal.getText());
         
+        FormTelaPrincipal.animalController.setAnimal(new Animal());
+        
         FormTelaPrincipal.animalController.getAnimal().setNome(nome);
         FormTelaPrincipal.animalController.getAnimal().setIdade(idade);
         FormTelaPrincipal.animalController.getAnimal().setId(ID);
         selecionaTipo();
         
         FormTelaPrincipal.animalController.cadastroAnimal();
+        
+        String mensagem = "Animal cadastrado com sucesso!";
+        JOptionPane.showMessageDialog(null, mensagem);
     }//GEN-LAST:event_BTCadastrarAnimalActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

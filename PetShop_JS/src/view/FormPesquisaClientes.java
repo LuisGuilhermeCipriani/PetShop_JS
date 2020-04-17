@@ -5,6 +5,7 @@
  */
 package view;
 
+import com.placeholder.PlaceHolder;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.Cliente;
@@ -16,6 +17,7 @@ import model.Cliente;
 public class FormPesquisaClientes extends javax.swing.JFrame {
 
     DefaultTableModel modelo;
+    PlaceHolder holder;
     public FormPesquisaClientes() {
         initComponents();
         modelo = (DefaultTableModel) TBTabelaClientes.getModel();
@@ -36,11 +38,7 @@ public class FormPesquisaClientes extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TBTabelaClientes = new javax.swing.JTable();
-        BTBuscarTClientes = new javax.swing.JButton();
         BTSairTClientes = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        TFNomePesquisaCliente = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -92,14 +90,6 @@ public class FormPesquisaClientes extends javax.swing.JFrame {
             TBTabelaClientes.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        BTBuscarTClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/buscar.png"))); // NOI18N
-        BTBuscarTClientes.setText("Buscar");
-        BTBuscarTClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTBuscarTClientesActionPerformed(evt);
-            }
-        });
-
         BTSairTClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/sair.png"))); // NOI18N
         BTSairTClientes.setText("Sair");
         BTSairTClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -107,17 +97,6 @@ public class FormPesquisaClientes extends javax.swing.JFrame {
                 BTSairTClientesActionPerformed(evt);
             }
         });
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("Nome");
-
-        TFNomePesquisaCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TFNomePesquisaClienteActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("Buscar por nome");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -136,19 +115,8 @@ public class FormPesquisaClientes extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TFNomePesquisaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BTBuscarTClientes)
-                        .addGap(55, 55, 55)
-                        .addComponent(BTSairTClientes))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(jLabel3)))
+                .addGap(268, 268, 268)
+                .addComponent(BTSairTClientes)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -160,14 +128,8 @@ public class FormPesquisaClientes extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6)
-                .addGap(5, 5, 5)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(TFNomePesquisaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BTBuscarTClientes)
-                    .addComponent(BTSairTClientes))
+                .addGap(25, 25, 25)
+                .addComponent(BTSairTClientes)
                 .addGap(11, 11, 11)
                 .addComponent(jLabel7)
                 .addContainerGap())
@@ -189,19 +151,11 @@ public class FormPesquisaClientes extends javax.swing.JFrame {
             modelo.addRow(new Object[]{
                 cliente.getNome(),
                 cliente.getCPF(),
-                cliente.getIdade(),
+                cliente.getIdade() + " Anos",
                 cliente.getId()
             });
         }
     }//GEN-LAST:event_formWindowOpened
-
-    private void BTBuscarTClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTBuscarTClientesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BTBuscarTClientesActionPerformed
-
-    private void TFNomePesquisaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFNomePesquisaClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TFNomePesquisaClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,13 +193,9 @@ public class FormPesquisaClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BTBuscarTClientes;
     private javax.swing.JButton BTSairTClientes;
     private javax.swing.JTable TBTabelaClientes;
-    private javax.swing.JTextField TFNomePesquisaCliente;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
