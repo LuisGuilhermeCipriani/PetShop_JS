@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dao.ClienteDao;
 import java.util.ArrayList;
 import java.util.List;
 import model.Cliente;
@@ -15,12 +16,11 @@ import model.Cliente;
  */
 public class ClienteController {
     private Cliente cliente;
-    private List<Cliente> listaClientes;
-
+    private ClienteDao clienteDao;
     
     public ClienteController() {
         cliente = new Cliente();
-        listaClientes = new ArrayList<Cliente>();
+        clienteDao = new ClienteDao();
     }
 
     public Cliente getCliente() {
@@ -32,20 +32,17 @@ public class ClienteController {
     }
 
     public List<Cliente> getListaClientes() {
-        return listaClientes;
+        return clienteDao.buscar();
     }
 
-    public void setListaClientes(List<Cliente> listaClientes) {
-        this.listaClientes = listaClientes;
-    }
     
     public void cadastrarCliente(){
-        listaClientes.add(cliente);
+        clienteDao.inserir(cliente);
     }
     
     public Cliente buscaCliente(String nome){
         nome.toLowerCase().trim();
-        for(Cliente cliente: listaClientes){
+        for(Cliente cliente: clienteDao.buscar()){
             if(nome.equals(cliente.getNome().toLowerCase().trim())){
                 return cliente;
             }
