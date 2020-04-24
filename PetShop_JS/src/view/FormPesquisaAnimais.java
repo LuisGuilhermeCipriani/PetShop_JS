@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.AnimalController;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.Animal;
@@ -17,16 +18,18 @@ import model.Tipo;
 public class FormPesquisaAnimais extends javax.swing.JFrame {
 
     DefaultTableModel tabelaAnimais;
+    AnimalController animalController;
     public FormPesquisaAnimais() {
         initComponents();
         tabelaAnimais = (DefaultTableModel) TBTabelaAnimais.getModel();
+        animalController = new AnimalController();
     }
 
     public String exibeAnosConvertidos(Animal animal){
         if(animal.getTipo() == Tipo.GATO){
-            return FormTelaPrincipal.animalController.conversaoIdadeGato() + " Anos Felinos";
+            return animalController.conversaoIdadeGato() + " Anos Felinos";
         }
-        return FormTelaPrincipal.animalController.conversaoIdadeCachorro() + " Anos Caninos";
+        return animalController.conversaoIdadeCachorro() + " Anos Caninos";
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -139,7 +142,7 @@ public class FormPesquisaAnimais extends javax.swing.JFrame {
     }//GEN-LAST:event_BTSairTClientesActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        List<Animal> lista = FormTelaPrincipal.animalController.getListaAnimais();
+        List<Animal> lista = animalController.getListaAnimais();
         for(Animal animal: lista){
             tabelaAnimais.addRow(new Object[]{
                 animal.getNome(),

@@ -16,13 +16,11 @@ import model.Animal;
  */
 public class AnimalController {
     private Animal animal;
-    private List<Animal> listaAnimais;
     private AnimalDao animalDao;
 
     
     public AnimalController() {
         animal = new Animal();
-        listaAnimais = new ArrayList<>();
         animalDao = new AnimalDao();
     }
 
@@ -35,11 +33,7 @@ public class AnimalController {
     }
 
     public List<Animal> getListaAnimais() {
-        return listaAnimais;
-    }
-
-    public void setListaAnimais(List<Animal> listaAnimais) {
-        this.listaAnimais = listaAnimais;
+        return animalDao.buscar();
     }
     
     public void cadastroAnimal(){
@@ -48,7 +42,7 @@ public class AnimalController {
     
     public Animal buscaAnima(String nome){
         nome.toLowerCase().trim();
-        for(Animal animal: listaAnimais){
+        for(Animal animal: animalDao.buscar()){
             if(nome.equals(animal.getNome().toLowerCase().trim())){
                 return animal;
             }
@@ -58,7 +52,7 @@ public class AnimalController {
     
     public int conversaoIdadeCachorro(){
         int idadeCachorro;
-        for(Animal animal: listaAnimais){
+        for(Animal animal: animalDao.buscar()){
             idadeCachorro = animal.getIdade()*7;
             return idadeCachorro;
         }
@@ -67,7 +61,7 @@ public class AnimalController {
     
     public int conversaoIdadeGato(){
         int idadeGato;
-        for(Animal animal: listaAnimais){
+        for(Animal animal: animalDao.buscar()){
             idadeGato = animal.getIdade()*7;
             return idadeGato;
         }

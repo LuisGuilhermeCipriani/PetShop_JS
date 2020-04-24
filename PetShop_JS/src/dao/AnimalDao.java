@@ -7,8 +7,13 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import model.Animal;
+import model.Tipo;
 import util.ConnectionFactory;
 
 /**
@@ -32,6 +37,28 @@ public class AnimalDao {
             
         }catch(SQLException ex){
             throw new RuntimeException("Erro ao inserir Animal" + ex);
+        }
+    }
+    
+    public List<Animal> buscar(){
+        Connection conexao = new ConnectionFactory().conector();
+        String sql = "SELECT * FROM animal"; //"SELECT id, tipo FROM animal"
+        List<Animal> listaAnimais = new ArrayList<>();
+        try{
+            Statement stmt = conexao.createStatement();
+            
+            ResultSet rs = stmt.executeQuery(sql); //Lista que vai guradar tudo do banco
+            while(rs.next()){
+                Animal animal = new Animal();
+                animal.setId(rs.getInt("id"));
+                animal.setNome(rs.getString("nome"));
+                animal.setIdade(rs.getInt("idade"));
+                animal.setTipo(Tipo.valueOf(rs.getString("tipo")));
+                listaAnimais.add(animal);
+            }
+            return listaAnimais;
+        }catch(SQLException ex){
+            throw new RuntimeException("Erro ao buscar Animal" + ex);
         }
     }
 }
