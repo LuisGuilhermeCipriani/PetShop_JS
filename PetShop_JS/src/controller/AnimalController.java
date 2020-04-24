@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dao.AnimalDao;
 import java.util.ArrayList;
 import java.util.List;
 import model.Animal;
@@ -16,11 +17,13 @@ import model.Animal;
 public class AnimalController {
     private Animal animal;
     private List<Animal> listaAnimais;
+    private AnimalDao animalDao;
 
     
     public AnimalController() {
         animal = new Animal();
         listaAnimais = new ArrayList<>();
+        animalDao = new AnimalDao();
     }
 
     public Animal getAnimal() {
@@ -40,7 +43,7 @@ public class AnimalController {
     }
     
     public void cadastroAnimal(){
-        listaAnimais.add(animal);
+        animalDao.inserir(animal);
     }
     
     public Animal buscaAnima(String nome){

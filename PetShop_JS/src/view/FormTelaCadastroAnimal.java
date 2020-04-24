@@ -6,6 +6,7 @@
 package view;
 
 import com.placeholder.PlaceHolder;
+import controller.AnimalController;
 import javax.swing.JOptionPane;
 import model.Animal;
 import model.Tipo;
@@ -17,10 +18,12 @@ import model.Tipo;
 public class FormTelaCadastroAnimal extends javax.swing.JFrame {
 
     PlaceHolder holder;
+    AnimalController animalController;
     public FormTelaCadastroAnimal() {
         initComponents();
         holders();
         LBCadastroAnimal.requestFocus();
+        animalController = new AnimalController();
     }
     
     public void holders(){
@@ -31,9 +34,9 @@ public class FormTelaCadastroAnimal extends javax.swing.JFrame {
 
     public void selecionaTipo(){
         if(RDGato.isSelected()){
-            FormTelaPrincipal.animalController.getAnimal().setTipo(Tipo.GATO);
+            animalController.getAnimal().setTipo(Tipo.GATO);
         }else if(RDCachorro.isSelected()){
-            FormTelaPrincipal.animalController.getAnimal().setTipo(Tipo.CACHORRO);
+            animalController.getAnimal().setTipo(Tipo.CACHORRO);
         }
     }
     @SuppressWarnings("unchecked")
@@ -242,14 +245,14 @@ public class FormTelaCadastroAnimal extends javax.swing.JFrame {
         int idade = Integer.parseInt(TFIdadeAnimal.getText());
         int ID = Integer.parseInt(TFIDAnimal.getText());
         
-        FormTelaPrincipal.animalController.setAnimal(new Animal());
+        animalController.setAnimal(new Animal());
         
-        FormTelaPrincipal.animalController.getAnimal().setNome(nome);
-        FormTelaPrincipal.animalController.getAnimal().setIdade(idade);
-        FormTelaPrincipal.animalController.getAnimal().setId(ID);
+        animalController.getAnimal().setNome(nome);
+        animalController.getAnimal().setIdade(idade);
+        animalController.getAnimal().setId(ID);
         selecionaTipo();
         
-        FormTelaPrincipal.animalController.cadastroAnimal();
+        animalController.cadastroAnimal();
         
         String mensagem = "Animal cadastrado com sucesso!";
         JOptionPane.showMessageDialog(null, mensagem);
