@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1385316878 source:c:\git\pokedex_c++\main.cpp
+	<iostream>
+
+1588279007 source:c:\git\pokedex_c++\src\pokemon.cpp
+	"Pokemon.h"
+
+1588278563 c:\git\pokedex_c++\include\pokemon.h
+	<iostream>
+
